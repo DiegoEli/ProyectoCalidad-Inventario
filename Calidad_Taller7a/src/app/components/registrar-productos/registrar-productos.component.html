@@ -1,0 +1,138 @@
+<!-- Registro de productos -->
+<div class="container" style="justify-content: center; width: 70%; padding: 5%;">
+  <div class="row border-0 shadow-lg">
+    <h2>Registro de Productos</h2><br>
+    <form (ngSubmit)="onSubmit()" #productoForm="ngForm">
+      <div class="row">
+        <div class="col" style="margin: 1%;">
+
+          <!-- <div class="form-group col">
+            <label for="categoria">Categoria:</label>
+            <input type="text" class="form-control" id="categoria" placeholder="Ingrese el categoria del producto"
+              required [(ngModel)]="producto.categoria_id_categoria" name="categoria">
+          </div><br> -->
+
+          <div class="form-group">
+            <label for="nombreCategoria">Seleccionar Categoría:</label>
+            <select class="form-select" aria-label="Default select example" id="nombreCategoria" required [(ngModel)]="producto.categoria_id_categoria" name="nombreCategoria">
+              <option value="">Seleccionar</option>
+              <option *ngFor="let categoria of categorias" [value]="categoria.id_categoria">{{ categoria.nombreCategoria }}</option>
+            </select>
+          </div><br>
+
+          <div class="form-group col">
+            <label for="nombreProducto">Nombre:</label>
+            <input type="text" class="form-control" id="nombreProducto" placeholder="Ingrese el nombre del producto" required
+              [(ngModel)]="producto.nombreProducto" name="nombreProducto">
+          </div><br>
+
+          <div class="form-group col">
+            <label for="marca">Marca:</label>
+            <input type="text" class="form-control" id="marca" placeholder="Ingrese la marca del producto" required
+              [(ngModel)]="producto.marca" name="marca">
+          </div>
+
+        </div>
+
+        <div class="col" style="margin: 1%;">
+
+          <div class="form-group col">
+            <label for="peso">Peso:</label>
+            <input type="text" class="form-control" id="peso" placeholder="Ingrese el peso del producto" required
+              [(ngModel)]="producto.peso" name="peso">
+          </div><br>
+
+          <div class="form-group col">
+            <label for="precioCompra">Precio de Compra ($):</label>
+            <input type="text" class="form-control" id="precioCompra" placeholder="Ingrese el precio de compra" required
+              [(ngModel)]="producto.precioCompra" name="precioCompra">
+          </div><br>
+
+          <div class="form-group col">
+            <label for="precioVenta">Precio de Venta ($):</label>
+            <input type="text" class="form-control" id="precioVenta" placeholder="Ingrese el precio de venta" required
+              [(ngModel)]="producto.precioVenta" name="precioVenta">
+          </div><br>
+
+          <div class="form-group col">
+            <label for="cantidad">Cantidad en Stock:</label>
+            <input type="text" class="form-control" id="cantidad" placeholder="Ingrese la cantidad en stock" required
+              [(ngModel)]="producto.cantidad" name="cantidad">
+          </div><br>
+
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <button type="submit" class="btn btn-primary" [disabled]="!productoForm.form.valid">Guardar
+          Producto</button><br><br>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+
+<!-- codigo de prueba del ejemplo-->
+<!-- <div class="row">
+  <div class="col-sm-12">
+    <form (ngSubmit)="onSubmit()" #productoForm="ngForm">
+
+      <fieldset class="form-group">
+        <div class="col-sm-12">
+          <label class="control-label" for="categoria">Categoria</label>
+          <input type="text" class="form-control" [(ngModel)]="producto.categoria" name="categoria">
+        </div>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <div class="col-sm-12">
+          <label class="control-label" for="nombre">Nombre</label>
+          <input type="text" class="form-control" required [(ngModel)]="producto.nombre" name="nombre">
+        </div>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <div class="col-sm-12">
+          <label class="control-label" for="marca">Marca</label>
+          <input type="text" class="form-control" required [(ngModel)]="producto.marca" name="marca">
+        </div>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <div class="col-sm-12">
+          <label class="control-label" for="peso">Peso</label>
+          <input type="text" class="form-control" required [(ngModel)]="producto.peso" name="peso">
+        </div>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <div class="col-sm-12">
+          <label class="control-label" for="precioCompra">Precio de Compra</label>
+          <input type="text" class="form-control" required [(ngModel)]="producto.precioCompra" name="precioCompra">
+        </div>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <div class="col-sm-12">
+          <label class="control-label" for="precioVenta">Precio de Venta</label>
+          <input type="text" class="form-control" required [(ngModel)]="producto.precioVenta" name="precioVenta">
+        </div>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <div class="col-sm-12">
+          <label class="control-label" for="cantidad">Cantidad</label>
+          <input type="text" class="form-control" required [(ngModel)]="producto.cantidad" name="cantidad">
+        </div>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-primary" [disabled]="!productoForm.form.valid">Submit</button>
+        </div>
+      </fieldset>
+
+    </form>
+  </div>
+</div> -->

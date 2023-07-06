@@ -1,0 +1,16 @@
+.container{
+    margin-top: 6%;
+}
+.contenedor{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+.list-group{
+    width: 300px;
+}
+.list-group-item {
+    background-color: transparent;
+    border: none;
+    color: #666;
+}

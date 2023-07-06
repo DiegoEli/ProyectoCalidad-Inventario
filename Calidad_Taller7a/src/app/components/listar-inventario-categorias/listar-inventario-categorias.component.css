@@ -1,0 +1,18 @@
+.listar_inv_cat{
+    margin: 2% 15%;
+}
+
+i{
+    padding: 5px;
+    margin-left: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.bi-pencil-square{
+    color: rgb(71, 208, 71);
+}
+
+.bi-file-earmark-x-fill{
+    color: red;
+}

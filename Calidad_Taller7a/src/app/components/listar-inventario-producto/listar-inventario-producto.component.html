@@ -1,0 +1,36 @@
+<div class="listar_inv_produc border-0 shadow-lg" style="padding: 2%;">
+  <!-- Listados de Inventarios -->
+  <h2>Listados de Inventarios</h2>
+  <h3>Por Productos</h3>
+  <table id="inventarioPorProducto" class="table table-striped" style="text-align: center;">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Categoría</th>
+        <th>Nombre</th>
+        <th>Marca</th>
+        <th>Peso</th>
+        <th>Precio de Compra</th>
+        <th>Precio de Venta</th>
+        <th>Cantidad en Stock</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productos | async">
+        <th>{{ producto.id_producto }}</th>
+        <th>{{ producto.categoria_id_categoria }}</th>
+        <td>{{ producto.nombreProducto }}</td>
+        <td>{{ producto.marca }}</td>
+        <td>{{ producto.peso }}g</td>
+        <td>{{ producto.precioCompra }}</td>
+        <td>{{ producto.precioVenta }}</td>
+        <td>{{ producto.cantidad }}</td>
+        <td>
+          <i class="bi bi-pencil-square" [routerLink]="['/productos/editar/', producto.id_producto]"></i>
+          <i class="bi bi-file-earmark-x-fill" (click)="borrarProducto(producto.id_producto)"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

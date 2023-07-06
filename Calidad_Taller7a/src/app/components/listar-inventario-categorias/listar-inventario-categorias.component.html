@@ -1,0 +1,25 @@
+<div class="listar_inv_cat border-0 shadow-lg" style="padding: 2%;">
+    <!-- Listados de Inventarios -->
+    <h2>Listados de Inventarios</h2>
+    <h4>Por Categorías existentes: </h4>
+    <table id="inventarioPorCategoria" class="table table-striped" style="text-align: center;">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Categoría</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Filas de categorias obtenidas de la base de datos -->
+            <tr *ngFor="let categoria of categorias | async">
+                <th>{{ categoria.id_categoria }}</th>
+                <th>{{ categoria.nombreCategoria }}</th>
+                <td>
+                    <i class="bi bi-pencil-square" [routerLink]="['/categorias/editar/', categoria.id_categoria]"></i>
+                    <i class="bi bi-file-earmark-x-fill" (click)="borrarCategoria(categoria.id_categoria)"></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,30 @@
+<!-- Registro de categorías -->
+<div class="principal d-flex justify-content-center" style="padding-left: 30%;">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <div class="card border-0 shadow-lg">
+            <div class="card-body">
+              <div>
+                <h2 class="text-center">Registro de Categorías</h2>
+                <form (ngSubmit)="onSubmit()" #categoriaForm="ngForm">
+
+                  <div class="form-group">
+                    <label for="nombreCategoria">Categoría:</label>
+                    <input type="text" class="form-control" id="nombreCategoria" placeholder="Ingrese la categoría" 
+                    required [(ngModel)]="categoria.nombreCategoria" name="nombreCategoria">
+                  </div>
+                  <br>
+                  
+                  <div style="text-align: center;">
+                    <button type="submit" class="btn btn-primary" [disabled]="!categoriaForm.form.valid">Guardar Categoría</button>
+                  </div>
+
+                </form>                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  

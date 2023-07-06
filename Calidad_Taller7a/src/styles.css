@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~bootstrap-icons/font/bootstrap-icons.min.css';
+body{
+    padding-top: 4em;
+    padding-bottom: 4em;
+    background-color: rgba(180, 180, 180, 0.151);
+}
