@@ -9,7 +9,7 @@ Este proyecto consiste en un software de inventario desarrollado con Angular y E
    cd ruta_proyecto
    ```
 
-2. Abra el proyecto en su editor de código preferido utilizando el siguiente comando:
+2. Abra el proyecto en su editor de código preferido. Por ejemplo, con Visual Studio Code:
    ```
    code .
    ```
@@ -24,6 +24,11 @@ El proyecto de Angular se abrirá automáticamente en su navegador predeterminad
 ## Ejecución de la API en Express.js
 
 Antes de ejecutar la API en Express.js, asegúrese de haber ejecutado el script SQL en su gestor de base de datos MySQL Workbench 8.0 CE.
+
+1. Navegue hasta la carpeta de la API usando el siguiente comando:
+   ```
+   cd ruta_api
+   ```
 
 1. Inicialice un nuevo proyecto de Node.js ejecutando el siguiente comando:
    ```
