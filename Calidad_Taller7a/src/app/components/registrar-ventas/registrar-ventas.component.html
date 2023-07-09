@@ -1,0 +1,44 @@
+<div class="container" style="justify-content: center; width: 50%; padding: 5%;">
+  <div class="row border-0 shadow-lg">
+    <h2>Registro de Ventas</h2><br>
+    <h5>Precio en el que vendemos (salida) </h5><br>
+    <form (ngSubmit)="onSubmit()" #ventaForm="ngForm">
+
+      <div class="form-group">
+        <label for="nombreCategoria">Seleccionar Categoría:</label>
+        <select class="form-select" aria-label="Default select example" id="nombreCategoria" required [(ngModel)]="venta.categoria_id_categoria" name="nombreCategoria" (change)="filtrarProductosPorCategoria($event)">
+          <option value="">Seleccionar</option>
+          <option *ngFor="let categoria of categorias" [value]="categoria.id_categoria">{{ categoria.nombreCategoria }}</option>
+        </select>
+      </div><br>
+
+      <div class="form-group">
+        <label for="nombreProducto">Seleccionar Producto:</label>
+        <select class="form-select" aria-label="Default select example" id="nombreProducto" required [(ngModel)]="venta.producto_id_producto" name="nombreProducto">
+          <option value="">Seleccionar</option>
+          <option *ngFor="let producto of productosFiltrados" [value]="producto.id_producto">{{ producto.nombreProducto }}</option>
+        </select>
+      </div><br>
+      
+      <div class="form-group">
+        <label for="cantidad">Cantidad:</label>
+        <input type="text" class="form-control" id="cantidad" placeholder="Ingrese la cantidad" required [(ngModel)]="venta.cantidad" name="cantidad" (input)="calcularPrecioTotal()">
+        <div *ngIf="ventaForm.controls['cantidad'].invalid && ventaForm.controls['cantidad'].touched" class="text-danger">
+          Cantidad inválida. Ingrese un valor válido mayor o igual a 1.
+        </div>
+      </div><br>
+
+      <div class="row">
+        <label for="cantidadCompra">Total ($): </label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" id="cantidadCompra" readonly [(ngModel)]="venta.total">
+        </div>
+      </div><br>
+
+      <div style="text-align: center;">
+        <button type="submit" class="btn btn-primary" [disabled]="!ventaForm.form.valid">Guardar Venta</button>
+      </div><br>
+
+    </form>
+  </div>
+</div>

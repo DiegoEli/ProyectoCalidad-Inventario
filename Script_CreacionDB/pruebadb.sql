@@ -68,8 +68,8 @@ CREATE TABLE IF NOT EXISTS compra (
 INSERT INTO categoria (nombreCategoria)
 	VALUES 
 		('Frutas'), 
-		('Verduras'), 
-		('Enlatados');
+		('Verduras'),
+        ('Enlatados');
 
 INSERT INTO producto (nombreProducto, marca, peso, precioCompra, precioVenta, cantidad, categoria_id_categoria)
 	VALUES

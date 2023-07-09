@@ -6,12 +6,6 @@
       <div class="row">
         <div class="col" style="margin: 1%;">
 
-          <!-- <div class="form-group col">
-            <label for="categoria">Categoria:</label>
-            <input type="text" class="form-control" id="categoria" placeholder="Ingrese el categoria del producto"
-              required [(ngModel)]="producto.categoria_id_categoria" name="categoria">
-          </div><br> -->
-
           <div class="form-group">
             <label for="nombreCategoria">Seleccionar Categoría:</label>
             <select class="form-select" aria-label="Default select example" id="nombreCategoria" required [(ngModel)]="producto.categoria_id_categoria" name="nombreCategoria">
@@ -64,8 +58,8 @@
       </div>
 
       <div style="text-align: center;">
-        <button type="submit" class="btn btn-primary" [disabled]="!productoForm.form.valid">Guardar
-          Producto</button><br><br>
+        <button type="submit" class="btn btn-primary" [disabled]="!productoForm.form.valid">Guardar Producto</button>
+        <br><br>
       </div>
 
     </form>

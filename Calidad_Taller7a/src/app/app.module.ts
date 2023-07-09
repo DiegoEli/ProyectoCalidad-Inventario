@@ -10,11 +10,16 @@ import { RegistrarProductosComponent } from './components/registrar-productos/re
 import { ListarInventarioProductoComponent } from './components/listar-inventario-producto/listar-inventario-producto.component';
 import { RegistrarCategoriasComponent } from './components/registrar-categorias/registrar-categorias.component';
 import { ListarInventarioCategoriasComponent } from './components/listar-inventario-categorias/listar-inventario-categorias.component';
+import { ListarInventariosAgotadosComponent } from './components/listar-inventarios-agotados/listar-inventarios-agotados.component';
+import { RegistrarVentasComponent } from './components/registrar-ventas/registrar-ventas.component';
+import { RegistrarComprasComponent } from './components/registrar-compras/registrar-compras.component';
 
-import { ProductoService } from './shared/producto.service';
-import { CategoriaService } from './shared/categoria.service';
-import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { CategoriaService } from './shared/categoria.service';
+import { ProductoService } from './shared/producto.service';
+import { VentaService } from './shared/venta.service';
+import { CompraService } from './shared/compra.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +30,10 @@ import { FormsModule } from '@angular/forms';
     RegistrarProductosComponent,
     ListarInventarioProductoComponent,
     RegistrarCategoriasComponent,
-    ListarInventarioCategoriasComponent
+    ListarInventarioCategoriasComponent,
+    ListarInventariosAgotadosComponent,
+    RegistrarVentasComponent,
+    RegistrarComprasComponent
   ],
   imports: [
     BrowserModule,
@@ -34,8 +42,10 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule
   ],
   providers: [
+    CategoriaService,
     ProductoService,
-    CategoriaService
+    VentaService,
+    CompraService
   ],
   bootstrap: [AppComponent]
 })

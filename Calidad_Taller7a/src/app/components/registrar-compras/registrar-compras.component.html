@@ -1,0 +1,50 @@
+<div class="container" style="justify-content: center; width: 50%; padding: 5%;">
+  <div class="row border-0 shadow-lg">
+    <h2>Registro de Compras</h2><br>
+    <h5>Precio en el que compramos (entrada)</h5><br>
+    <form (ngSubmit)="onSubmit()" #compraForm="ngForm">
+      
+      <div class="form-group">
+        <label for="nombreCategoria">Seleccionar Categoría:</label>
+        <select class="form-select" aria-label="Default select example" id="nombreCategoria" required [(ngModel)]="compra.categoria_id_categoria" name="nombreCategoria">
+          <option value="">Seleccionar</option>
+          <option *ngFor="let categoria of categorias" [value]="categoria.id_categoria">{{ categoria.nombreCategoria }}</option>
+        </select>
+      </div><br>
+
+      <div class="form-group">
+        <label for="nombreProducto">Seleccionar Producto:</label>
+        <select class="form-select" aria-label="Default select example" id="nombreProducto" required [(ngModel)]="compra.producto_id_producto" name="nombreProducto">
+          <option value="">Seleccionar</option>
+          <option *ngFor="let producto of productos" [value]="producto.id_producto">{{ producto.nombreProducto }}</option>
+        </select>
+      </div><br>
+
+      <div class="form-group">
+        <label for="proveedor">Proveedor:</label>
+        <input type="text"  class="form-control" id="proveedor" placeholder="Ingrese el nombre del proveedor" required [(ngModel)]="compra.proveedor" name="proveedor">
+      </div><br>
+      
+      <div class="form-group">
+        <label for="cantidad">Cantidad:</label>
+        <input type="text" class="form-control" id="cantidad" placeholder="Ingrese la cantidad" required [(ngModel)]="compra.cantidad"
+        name="cantidad" >
+        <div *ngIf="compraForm.controls['cantidad'].invalid && compraForm.controls['cantidad'].touched" class="text-danger">
+          Cantidad inválida. Ingrese un valor válido mayor o igual a 1.
+        </div>
+      </div><br>
+
+      <div class="row">
+        <label for="cantidadCompra">Total ($): </label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" id="cantidadCompra" readonly [(ngModel)]="compra.total">
+        </div>
+      </div><br>
+
+      <div style="text-align: center;">
+        <button type="submit" class="btn btn-primary" [disabled]="!compraForm.form.valid">Guardar Compra</button>
+      </div><br>
+
+    </form>
+  </div>
+</div>

@@ -1,5 +1,7 @@
 export class ProductoModel {
-    
+    nombre_producto: any;
+    precio_venta: any;
+
     constructor(
         public id_producto: string,
         public nombreProducto: string,
@@ -9,6 +11,6 @@ export class ProductoModel {
         public precioVenta: string,
         public cantidad: string,
         public categoria_id_categoria: string
-    ) {}
-    
+    ) { }
+
 }
