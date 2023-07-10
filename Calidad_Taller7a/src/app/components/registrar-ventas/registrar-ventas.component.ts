@@ -19,7 +19,6 @@ export class RegistrarVentasComponent implements OnInit {
   venta = new VentaModel('', '', '', '' , '');
   categorias: CategoriaModel[] = [];
   productos: ProductoModel[] = [];
-  productosFiltrados: ProductoModel[] = [];
 
   constructor(
     private ventaService: VentaService,
@@ -46,7 +45,8 @@ export class RegistrarVentasComponent implements OnInit {
       console.log('CREAR');
     }
     this.obtenerCategorias();
-    this.venta.cantidad = '', Validators.min(1);
+    this.obtenerProductos();
+    // this.venta.cantidad = '', Validators.min(1);
   }
 
   obtenerCategorias() {
@@ -61,20 +61,15 @@ export class RegistrarVentasComponent implements OnInit {
   }
 
   obtenerProductos() {
+    const categoriaSeleccionada = this.venta.categoria_id_categoria;
     this.productoService.obtenerProductos().subscribe({
       next: (data: ProductoModel[]) => {
-        this.productos = data;
+        this.productos = data.filter((producto) => producto.categoria_id_categoria == categoriaSeleccionada);
       },
       error: (error: any) => {
         console.log(error);
       }
     });
-  }
-
-  filtrarProductosPorCategoria(event: Event) {
-    const categoriaSeleccionada = (event.target as HTMLSelectElement).value;
-    this.productosFiltrados = this.productos.filter(producto => producto.categoria_id_categoria === categoriaSeleccionada);
-    this.venta.producto_id_producto = ''; // Reiniciamos el valor del producto seleccionado
   }
 
   actualizarPrecioVenta() {

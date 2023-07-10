@@ -45,6 +45,7 @@ export class RegistrarComprasComponent implements OnInit {
       console.log('CREAR');
     }
     this.obtenerCategorias();
+    this.obtenerProductos();
   }
 
   obtenerCategorias() {
@@ -59,15 +60,18 @@ export class RegistrarComprasComponent implements OnInit {
   }
 
   obtenerProductos() {
+    const categoriaSeleccionada = this.compra.categoria_id_categoria;
     this.productoService.obtenerProductos().subscribe({
       next: (data: ProductoModel[]) => {
-        this.productos = data;
+        this.productos = data.filter((producto) => producto.categoria_id_categoria == categoriaSeleccionada);
       },
       error: (error: any) => {
         console.log(error);
       }
     });
   }
+
+  //metodos calcularPrecioTotal() y actualizarPrecioVenta()
 
   onSubmit() {
 

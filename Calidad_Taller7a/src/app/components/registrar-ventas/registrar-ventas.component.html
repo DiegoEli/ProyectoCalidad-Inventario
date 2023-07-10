@@ -6,7 +6,7 @@
 
       <div class="form-group">
         <label for="nombreCategoria">Seleccionar Categoría:</label>
-        <select class="form-select" aria-label="Default select example" id="nombreCategoria" required [(ngModel)]="venta.categoria_id_categoria" name="nombreCategoria" (change)="filtrarProductosPorCategoria($event)">
+        <select class="form-select" aria-label="Default select example" id="nombreCategoria" required [(ngModel)]="venta.categoria_id_categoria" name="nombreCategoria" (ngModelChange)="obtenerProductos()">
           <option value="">Seleccionar</option>
           <option *ngFor="let categoria of categorias" [value]="categoria.id_categoria">{{ categoria.nombreCategoria }}</option>
         </select>
@@ -16,7 +16,7 @@
         <label for="nombreProducto">Seleccionar Producto:</label>
         <select class="form-select" aria-label="Default select example" id="nombreProducto" required [(ngModel)]="venta.producto_id_producto" name="nombreProducto">
           <option value="">Seleccionar</option>
-          <option *ngFor="let producto of productosFiltrados" [value]="producto.id_producto">{{ producto.nombreProducto }}</option>
+          <option *ngFor="let producto of productos" [value]="producto.id_producto">{{ producto.nombreProducto }}</option>
         </select>
       </div><br>
       
@@ -29,9 +29,9 @@
       </div><br>
 
       <div class="row">
-        <label for="cantidadCompra">Total ($): </label>
+        <label for="total">Total ($): </label>
         <div class="col-sm-3">
-          <input type="text" class="form-control" id="cantidadCompra" readonly [(ngModel)]="venta.total">
+          <input type="text" class="form-control" id="total" readonly [(ngModel)]="venta.total">
         </div>
       </div><br>
 
