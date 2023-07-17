@@ -8,21 +8,23 @@ import { ProductoService } from 'src/app/shared/producto.service';
   templateUrl: './listar-inventario-producto.component.html',
   styleUrls: ['./listar-inventario-producto.component.css']
 })
-export class ListarInventarioProductoComponent implements OnInit{
+export class ListarInventarioProductoComponent implements OnInit {
 
   productos: Observable<ProductoModel[]> | undefined
 
-  constructor(private productoService: ProductoService) {}
+  constructor(private productoService: ProductoService) { }
 
   ngOnInit(): void {
     this.productos = this.productoService.obtenerProductos();
   }
 
   borrarProducto(id: string) {
-    this.productoService.borrarProducto(id).subscribe(data => {
-      console.log(data);
-      this.productos = this.productoService.obtenerProductos();
-    });
+    if (confirm('¿Estás seguro de eliminar?')) {
+      this.productoService.borrarProducto(id).subscribe(data => {
+        console.log(data);
+        this.productos = this.productoService.obtenerProductos();
+      });
+    }
   }
-  
+
 }

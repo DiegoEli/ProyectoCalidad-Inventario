@@ -12,17 +12,19 @@ export class ListarInventarioCategoriasComponent implements OnInit {
 
   categorias: Observable<CategoriaModel[]> | undefined
 
-  constructor(private categoriaService: CategoriaService) {}
+  constructor(private categoriaService: CategoriaService) { }
 
   ngOnInit(): void {
     this.categorias = this.categoriaService.obtenerCategorias();
   }
-  
+
   borrarCategoria(id: string) {
-    this.categoriaService.borrarCategoria(id).subscribe(data => {
-     console.log(data);
-     this.categorias = this.categoriaService.obtenerCategorias();
-    });
+    if (confirm('¿Estás seguro de eliminar?')) {
+      this.categoriaService.borrarCategoria(id).subscribe(data => {
+        console.log(data);
+        this.categorias = this.categoriaService.obtenerCategorias();
+      });
+    }
   }
 
 }
