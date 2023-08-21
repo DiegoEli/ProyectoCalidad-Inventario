@@ -6,24 +6,29 @@
 
       <div class="form-group">
         <label for="nombreCategoria">Seleccionar Categoría:</label>
-        <select class="form-select" aria-label="Default select example" id="nombreCategoria" required [(ngModel)]="venta.categoria_id_categoria" name="nombreCategoria" (ngModelChange)="obtenerProductos()">
+        <select class="form-select" aria-label="Default select example" id="nombreCategoria" required
+          [(ngModel)]="venta.categoria_id_categoria" name="nombreCategoria" (ngModelChange)="obtenerProductos()">
           <option value="">Seleccionar</option>
-          <option *ngFor="let categoria of categorias" [value]="categoria.id_categoria">{{ categoria.nombreCategoria }}</option>
+          <option *ngFor="let categoria of categorias" [value]="categoria.id_categoria">{{ categoria.nombreCategoria }}
+          </option>
         </select>
       </div><br>
 
       <div class="form-group">
         <label for="nombreProducto">Seleccionar Producto:</label>
-        <select class="form-select" aria-label="Default select example" id="nombreProducto" required [(ngModel)]="venta.producto_id_producto" name="nombreProducto">
+        <select class="form-select" aria-label="Default select example" id="nombreProducto" required
+          [(ngModel)]="venta.producto_id_producto" name="nombreProducto">
           <option value="">Seleccionar</option>
-          <option *ngFor="let producto of productos" [value]="producto.id_producto">{{ producto.nombreProducto }}</option>
+          <option *ngFor="let producto of productos" [value]="producto.id_producto">{{ producto.nombreProducto }}
+          </option>
         </select>
       </div><br>
-      
+
       <div class="form-group">
         <label for="cantidad">Cantidad:</label>
-        <input type="text" class="form-control" id="cantidad" placeholder="Ingrese la cantidad" required [(ngModel)]="venta.cantidad" name="cantidad" (input)="calcularPrecioTotal()">
-        <div *ngIf="ventaForm.controls['cantidad'].invalid && ventaForm.controls['cantidad'].touched" class="text-danger">
+        <input type="number" class="form-control" id="cantidad" step="1" name="cantidad" placeholder="Ingrese la cantidad" required [(ngModel)]="venta.cantidad" (input)="calcularPrecioTotal()" min="0">
+        <div *ngIf="ventaForm.controls['cantidad'].invalid && ventaForm.controls['cantidad'].touched"
+          class="text-danger">
           Cantidad inválida. Ingrese un valor válido mayor o igual a 1.
         </div>
       </div><br>
@@ -31,7 +36,7 @@
       <div class="row">
         <label for="total">Total ($): </label>
         <div class="col-sm-3">
-          <input type="text" class="form-control" id="total" readonly [(ngModel)]="venta.total">
+          <input type="number" class="form-control" id="total" name="total" readonly [(ngModel)]="venta.total" min="0">
         </div>
       </div><br>
 

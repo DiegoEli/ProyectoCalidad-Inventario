@@ -32,26 +32,22 @@
 
           <div class="form-group col">
             <label for="peso">Peso:</label>
-            <input type="text" class="form-control" id="peso" placeholder="Ingrese el peso del producto" required
-              [(ngModel)]="producto.peso" name="peso">
+            <input type="number" class="form-control" id="peso" step="0.1" name="peso" placeholder="Ingrese el peso del producto" required [(ngModel)]="producto.peso" min="0">
           </div><br>
 
           <div class="form-group col">
             <label for="precioCompra">Precio de Compra ($):</label>
-            <input type="text" class="form-control" id="precioCompra" placeholder="Ingrese el precio de compra" required
-              [(ngModel)]="producto.precioCompra" name="precioCompra">
+            <input type="number" class="form-control" id="precioCompra" step="0.1" name="precioCompra" placeholder="Ingrese el precio de compra" required [(ngModel)]="producto.precioCompra" min="0">
           </div><br>
 
           <div class="form-group col">
             <label for="precioVenta">Precio de Venta ($):</label>
-            <input type="text" class="form-control" id="precioVenta" placeholder="Ingrese el precio de venta" required
-              [(ngModel)]="producto.precioVenta" name="precioVenta">
+            <input type="number" class="form-control" id="precioVenta" step="0.1" name="precioVenta" placeholder="Ingrese el precio de venta" required [(ngModel)]="producto.precioVenta" min="0">
           </div><br>
 
           <div class="form-group col">
             <label for="cantidad">Cantidad en Stock:</label>
-            <input type="text" class="form-control" id="cantidad" placeholder="Ingrese la cantidad en stock" required
-              [(ngModel)]="producto.cantidad" name="cantidad">
+            <input type="number" class="form-control" id="cantidad" step="1" name="cantidad" placeholder="Ingrese la cantidad en stock" required [(ngModel)]="producto.cantidad" min="0">
           </div><br>
 
         </div>

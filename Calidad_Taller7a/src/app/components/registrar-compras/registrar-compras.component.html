@@ -27,8 +27,7 @@
       
       <div class="form-group">
         <label for="cantidad">Cantidad:</label>
-        <input type="text" class="form-control" id="cantidad" placeholder="Ingrese la cantidad" required [(ngModel)]="compra.cantidad"
-        name="cantidad" >
+        <input type="number" class="form-control" id="cantidad" step="1" name="cantidad" placeholder="Ingrese la cantidad" required [(ngModel)]="compra.cantidad" min="0">
         <div *ngIf="compraForm.controls['cantidad'].invalid && compraForm.controls['cantidad'].touched" class="text-danger">
           Cantidad inválida. Ingrese un valor válido mayor o igual a 1.
         </div>
@@ -37,7 +36,7 @@
       <div class="row">
         <label for="total">Total ($): </label>
         <div class="col-sm-3">
-          <input type="text" class="form-control" id="total" readonly [(ngModel)]="compra.total">
+          <input type="text" class="form-control" id="total" name="total" readonly [(ngModel)]="compra.total" min="0">
         </div>
       </div><br>
 

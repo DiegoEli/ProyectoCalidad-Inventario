@@ -17,13 +17,13 @@
     </thead>
     <tbody>
       <tr *ngFor="let producto of productos | async" [class.table-danger]="siStockInsufficient(producto.cantidad)">
-        <th>{{ producto.id_producto }}</th>
-        <th scope="row">{{ producto.categoria_id_categoria }}</th>
+        <td>{{ producto.id_producto }}</td>
+        <td>{{ obtenerNombreCategoria(producto.categoria_id_categoria) }}</td>
         <td>{{ producto.nombreProducto }}</td>
         <td>{{ producto.marca }}</td>
-        <td>{{ producto.peso }}g</td>
-        <td>{{ producto.precioCompra }}</td>
-        <td>{{ producto.precioVenta }}</td>
+        <td>{{ producto.peso | number: '1.2-2' }}g</td>
+        <td>${{ producto.precioCompra | number: '1.2-2' }}</td>
+        <td>${{ producto.precioVenta | number: '1.2-2' }}</td>
         <td>{{ producto.cantidad }}</td>
       </tr>
     </tbody>
